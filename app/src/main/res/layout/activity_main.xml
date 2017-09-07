@@ -8,6 +8,11 @@
     android:id="@+id/main_container"
     tools:context="com.example.sambesnier.morpion.MainActivity">
 
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/backgroundLayout"
         android:layout_width="match_parent"
@@ -48,13 +53,13 @@
         <GridLayout
             android:id="@+id/plateau"
             android:visibility="gone"
-            android:layout_gravity="center"
             android:columnCount="3"
             android:rowCount="3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:id="@+id/case1"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -81,6 +86,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case2"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -107,6 +113,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case3"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -133,6 +140,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case4"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -159,6 +167,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case5"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -185,6 +194,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case6"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -211,6 +221,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case7"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -237,6 +248,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case8"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -263,6 +275,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/case9"
                 android:background="@drawable/btn_case"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -294,8 +307,8 @@
             android:id="@+id/newBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/btn_white"
             android:onClick="newGame"
             android:text="Nouvelle partie"
@@ -306,9 +319,10 @@
             android:id="@+id/retryBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:background="@drawable/btn_white"
             android:onClick="newGame"
             android:text="Relancer une partie"
@@ -317,4 +331,5 @@
             android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
+    </ScrollView>
 </LinearLayout>

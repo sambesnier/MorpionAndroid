@@ -1,26 +1,29 @@
 package com.example.sambesnier.morpion;
 
+import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.transitionseverywhere.Explode;
-import com.transitionseverywhere.Fade;
 import com.transitionseverywhere.Recolor;
-import com.transitionseverywhere.Transition;
 import com.transitionseverywhere.TransitionManager;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -157,13 +160,51 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (gm.isFinished()) {
-            explodeMap();
+            //minimizeMap();
             reinitDisplay();
         }
     }
 
-    private void explodeMap() {
+    private void minimizeMap() {
+        RelativeLayout case1 = (RelativeLayout) findViewById(R.id.case1);
+        RelativeLayout case2 = (RelativeLayout) findViewById(R.id.case2);
+        RelativeLayout case3 = (RelativeLayout) findViewById(R.id.case3);
 
+        RelativeLayout case4 = (RelativeLayout) findViewById(R.id.case4);
+        RelativeLayout case5 = (RelativeLayout) findViewById(R.id.case5);
+        RelativeLayout case6 = (RelativeLayout) findViewById(R.id.case6);
+
+        RelativeLayout case7 = (RelativeLayout) findViewById(R.id.case7);
+        RelativeLayout case8 = (RelativeLayout) findViewById(R.id.case8);
+        RelativeLayout case9 = (RelativeLayout) findViewById(R.id.case9);
+
+        GridLayout plateau = (GridLayout) findViewById(R.id.plateau);
+        plateau.setPivotX(0);
+        plateau.setPivotY(0);
+        Log.d("rtest", "x : " + plateau.getPivotX() + " y : " + plateau.getPivotY());
+
+        ArrayList<View> cases = new ArrayList<>();
+        /*cases.add(case1);
+        cases.add(case2);
+        cases.add(case3);
+        cases.add(case4);
+        cases.add(case5);
+        cases.add(case6);
+        cases.add(case7);
+        cases.add(case8);
+        cases.add(case9);*/
+        cases.add(plateau);
+
+        scaleView(cases, 1.0f, 0.7f);
+    }
+
+    public void scaleView(ArrayList<View> v, float startScale, float endScale) {
+        ScaleAnimation scale = new ScaleAnimation((float)startScale, (float)endScale, (float)startScale, (float)endScale);
+        scale.setFillAfter(true);
+        scale.setDuration(1000);
+        for (int i = 0; i < v.size(); i++) {
+            v.get(i).startAnimation(scale);
+        }
     }
 
     private void reinitDisplay() {
